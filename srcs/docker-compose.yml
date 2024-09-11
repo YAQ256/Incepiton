@@ -1,0 +1,60 @@
+services:
+  nginx:
+    build: requirements/nginx/.
+    container_name: nginx
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - www:/var/www/html
+    restart: always
+    networks:
+      - network
+    env_file:
+      - .env
+  wordpress:
+    build: requirements/wordpress/.
+    container_name: wp-php
+    image: wordpress
+    volumes:
+      - www:/var/www/html
+    restart: always
+    networks:
+      - network
+    env_file:
+      - .env
+  mariadb:
+    build: requirements/mariadb/.
+    container_name: mariadb
+    image: mariadb
+    volumes:
+      - db:/var/lib/mysql
+    restart: always
+    networks:
+      - network
+    env_file:
+      - .env
+
+networks:
+  network:
+    name: network
+    driver: bridge
+
+volumes:
+  db:
+    driver: local
+    name: db
+    driver_opts:
+      device: /Users/christianyacoub/data/db
+      type: none
+      o: bind
+
+  www:
+    driver: local
+    name: www
+    driver_opts:
+      device: /Users/christianyacoub/data/www
+      type: none
+      o: bind
+ 
+      

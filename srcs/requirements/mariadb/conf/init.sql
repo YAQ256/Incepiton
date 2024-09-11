@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS wordpress;
+CREATE USER IF NOT EXISTS '$dbuser'@'%' IDENTIFIED BY '$dbpassword';
+GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'%' WITH GRANT OPTION;
+ALTER USER 'root'@'localhost' IDENTIFIED BY '$root_pass' ;
+FLUSH PRIVILEGES;
