@@ -5,6 +5,7 @@ RUN apt update && apt upgrade && apt install -y \
 	php-mysqli \
 	curl
 
+
 COPY conf/www.conf /etc/php/8.2/fpm/pool.d/.
 COPY script.sh .
 

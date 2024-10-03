@@ -4,7 +4,7 @@ services:
     container_name: nginx
     image: nginx
     ports:
-      - "80:80"
+      - "443:443"
     volumes:
       - www:/var/www/html
     restart: always
@@ -45,7 +45,7 @@ volumes:
     driver: local
     name: db
     driver_opts:
-      device: /Users/christianyacoub/data/db
+      device: /home/cyacoub-/data/db
       type: none
       o: bind
 
@@ -53,6 +53,6 @@ volumes:
     driver: local
     name: www
     driver_opts:
-      device: /Users/christianyacoub/data/www
+      device: /home/cyacoub-/data/www
       type: none
       o: bind
