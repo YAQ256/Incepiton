@@ -6,7 +6,7 @@ RUN apt update && apt upgrade && apt install -y \
 
 COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/.
 # COPY conf/init.sql /etc/mysql/init.sql
-COPY script.sh .
+COPY tools/script.sh .
 # COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/.
 # COPY conf/init.sql /etc/mysql/init.sql
 # COPY conf/script.sh .
